@@ -1,0 +1,81 @@
+---
+const categories = [
+  {
+    label: 'Frontend',
+    items: ['Angular', 'React', 'RxJS', 'Redux', 'TypeScript', 'JavaScript (ES2025)', 'SCSS/Sass', 'Design Systems'],
+  },
+  {
+    label: 'Backend',
+    items: ['Node.js', 'NestJS', 'Java', 'Spring Boot', 'REST APIs', 'Microservices', 'JPA/Hibernate'],
+  },
+  {
+    label: 'AI & Automation',
+    items: ['Claude Code', 'Agent Skills', 'MCP Servers', 'n8n', 'Braintrust (LLM Eval)'],
+  },
+  {
+    label: 'Cloud & Infra',
+    items: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'PostgreSQL', 'Redis'],
+  },
+];
+---
+
+<section class="stack">
+  <div class="wrap stack-grid">
+    {categories.map((cat) => (
+      <div class="stack-col">
+        <p class="stack-label">{cat.label}</p>
+        <ul class="stack-list">
+          {cat.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stack {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-12) 0;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+
+  .stack-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+
+  .stack-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 800px) {
+    .stack-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stack-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

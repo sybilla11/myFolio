@@ -1,0 +1,126 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class={`card ${project.featured ? 'card-featured' : ''}`}>
+  <div class="card-head">
+    <h3>{project.name}</h3>
+    {project.private && <span class="badge">Private repo</span>}
+  </div>
+  <p class="card-desc">{project.description}</p>
+  <ul class="tech-tags">
+    {project.tech.map((t) => <li>{t}</li>)}
+  </ul>
+  <div class="card-links">
+    {project.liveUrl && (
+      <a class="card-link" href={project.liveUrl} target="_blank" rel="noopener">
+        Live demo ↗
+      </a>
+    )}
+    {project.repoUrl && (
+      <a class="card-link" href={project.repoUrl} target="_blank" rel="noopener">
+        Code ↗
+      </a>
+    )}
+    {project.secondaryUrl && (
+      <a class="card-link" href={project.secondaryUrl.url} target="_blank" rel="noopener">
+        {project.secondaryUrl.label} ↗
+      </a>
+    )}
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .card-featured {
+    grid-column: 1 / -1;
+    border-color: var(--accent);
+    background: linear-gradient(180deg, var(--accent-soft), var(--surface) 60%);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .card-head h3 {
+    font-size: 1.25rem;
+  }
+
+  .badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px var(--space-2);
+    white-space: nowrap;
+  }
+
+  .card-desc {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    flex-grow: 1;
+  }
+
+  .tech-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tech-tags li {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: var(--code-bg);
+    color: var(--text-muted);
+    padding: 3px var(--space-2);
+    border-radius: var(--radius-sm);
+  }
+
+  .card-links {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+  }
+
+  .card-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+</style>
