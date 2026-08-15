@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import profile from '../assets/profile.jpeg';
+import profile from '../assets/profile_3.jpeg';
 ---
 
 <section class="hero">
@@ -8,13 +8,10 @@ import profile from '../assets/profile.jpeg';
     <div class="hero-text">
       <p class="eyebrow">Staff Software Engineer</p>
       <h1>
-        Frontend architecture for <em>regulated, high-stakes</em> products.
+        Frontend architecture for <em>regulated, high&#8209;stakes</em> products.
       </h1>
       <p class="lead">
-        10+ years building enterprise software for financial services and fintech — currently at BILL, leading
-        Angular/React architecture for international payments and Banking-as-a-Service. Full-stack when it counts
-        (Java/Spring on the back end), and increasingly focused on AI-augmented engineering: agent workflows, MCP
-        servers, and LLM evaluation as part of how I build, not just what I build.
+        Staff Software Engineer with 10+ years building enterprise software for financial services and fintech. I lead frontend architecture in Angular, React, and TypeScript — designing scalable, design-system-driven UI for complex, regulated financial workflows. Full-stack when it counts (Java/Spring on the back end), and increasingly focused on AI-augmented engineering: agent workflows, MCP servers, and LLM evaluation as part of how I build, not just what I build.
       </p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#projects">See my work</a>
@@ -27,7 +24,7 @@ import profile from '../assets/profile.jpeg';
       </div>
     </div>
     <div class="hero-photo">
-      <Image src={profile} alt="Sybilla Dantas" width={360} height={360} />
+      <Image src={profile} alt="Sybilla Dantas" width={480} class="avatar" />
     </div>
   </div>
 </section>
@@ -41,7 +38,7 @@ import profile from '../assets/profile.jpeg';
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: var(--space-16);
-    align-items: center;
+    align-items: start;
   }
 
   .hero-text h1 {
@@ -71,11 +68,12 @@ import profile from '../assets/profile.jpeg';
     justify-self: center;
   }
 
-  .hero-photo :global(img) {
-    width: 300px;
-    height: 300px;
+  .hero-photo :global(.avatar) {
+    width: 260px;
+    height: 260px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: var(--radius-lg);
+    border-radius: 50%;
     border: 1px solid var(--border);
   }
 
@@ -98,7 +96,7 @@ import profile from '../assets/profile.jpeg';
       order: -1;
     }
 
-    .hero-photo :global(img) {
+    .hero-photo :global(.avatar) {
       width: 200px;
       height: 200px;
     }

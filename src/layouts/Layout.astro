@@ -26,6 +26,11 @@ const {
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      // Runs before paint so a stored preference doesn't flash the wrong theme first.
+      const stored = localStorage.getItem('theme');
+      if (stored) document.documentElement.setAttribute('data-theme', stored);
+    </script>
   </head>
   <body>
     <slot />
