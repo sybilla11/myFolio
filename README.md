@@ -2,6 +2,8 @@
 
 My personal portfolio & resume site — [Sybilla Dantas](https://www.linkedin.com/in/sybilla-dantas-41861213/), Staff Software Engineer.
 
+**Live**: https://myfolio-ry11.onrender.com
+
 Built with [Astro](https://astro.build): Hero, tech stack, experience timeline, projects, and a downloadable resume, all statically generated.
 
 ## Structure
@@ -28,7 +30,7 @@ npm run preview   # serve the production build locally
 
 ## Deployment
 
-Not yet deployed. Being a static Astro build, it's a natural fit for Render Static Site, Netlify, Vercel, or GitHub Pages — same shape as the [TRVLChamp](https://github.com/sybilla11/TRVLChamp) frontend deploy.
+Hosted on Render as a Static Site — build command `npm run build`, publish directory `dist`. Connected directly to this repo, so every push to `main` auto-deploys. Same pattern as the [TRVLChamp](https://github.com/sybilla11/TRVLChamp) frontend deploy.
 
 ## History
 
